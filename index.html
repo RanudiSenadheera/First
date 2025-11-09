@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Based Tax Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Web Based Tax Calculator</h1>
+
+    <nav>
+      <button onclick="showSection('withholding')">Withholding Tax</button>
+      <button onclick="showSection('payable')">Payable Tax</button>
+      <button onclick="showSection('income')">Income Tax</button>
+      <button onclick="showSection('sscl')">SSCL Tax</button>
+      <button onclick="showSection('leasing')">Leasing</button>
+      <button onclick="clearAll()">Clear All</button>
+    </nav>
+
+    <!-- Withholding Tax -->
+    <section id="withholding" class="calc-section">
+      <h2>Withholding Tax</h2>
+      <label>Tax Type:
+        <select id="withholdType">
+          <option value="rent">Rent</option>
+          <option value="bank">Bank Interest</option>
+          <option value="dividend">Dividend</option>
+        </select>
+      </label>
+      <input type="number" id="withholdAmount" placeholder="Enter amount (Rs.)" />
+      <button onclick="calcWithholding()">Calculate</button>
+      <div class="result" id="withholdResult"></div>
+    </section>
+
+    <!-- Payable Tax -->
+    <section id="payable" class="calc-section">
+      <h2>Payable Tax (Monthly Salary)</h2>
+      <input type="number" id="salary" placeholder="Enter Monthly Salary (Rs.)" />
+      <button onclick="calcPayable()">Calculate</button>
+      <div class="result" id="payableResult"></div>
+    </section>
+
+    <!-- Income Tax -->
+    <section id="income" class="calc-section">
+      <h2>Income Tax (Annual)</h2>
+      <input type="number" id="annualIncome" placeholder="Enter Annual Income (Rs.)" />
+      <button onclick="calcIncome()">Calculate</button>
+      <div class="result" id="incomeResult"></div>
+    </section>
+
+    <!-- SSCL Tax -->
+    <section id="sscl" class="calc-section">
+      <h2>SSCL Tax</h2>
+      <input type="number" id="ssclValue" placeholder="Enter value (Rs.)" />
+      <button onclick="calcSSCL()">Calculate</button>
+      <div class="result" id="ssclResult"></div>
+    </section>
+
+    <!-- Leasing -->
+    <section id="leasing" class="calc-section">
+      <h2>Leasing Calculator</h2>
+      <label>Loan Amount (A):</label>
+      <input type="number" id="loanAmount" placeholder="Enter loan amount (Rs.)" />
+      <label>Interest Rate (%):</label>
+      <input type="number" id="interestRate" placeholder="Enter interest rate" />
+      <label>Years:</label>
+      <input type="number" id="years" placeholder="Enter years (<=5)" />
+      <button onclick="calcLeasing()">Calculate</button>
+      <div class="result" id="leasingResult"></div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
